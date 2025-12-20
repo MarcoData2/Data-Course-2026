@@ -1,4 +1,4 @@
-# Data Course
+# AI & Data Course
 Aprende desde cero hasta nivel avanzado con Marco Data, Senior Data Specialist con amplia experiencia en empresas líderes como Google.
 
 ## Ing. Marco Data
