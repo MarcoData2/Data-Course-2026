@@ -1,406 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso de Inteligencia Artificial y Datos con Marco Data</title>
-<!-- Actualizado a Font Awesome 6.5.1 que incluye el ícono de X -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-:root {
---primary: #00ff88; --secondary: #1a2e1f; --accent: #ff6b00; --dark: #0a1a0f; --light: #e0ffe8; --text: #f8f9fa; --glow: rgba(0, 255, 136, 0.6);
-        }
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-body {
-background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)),
-url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a2e" width="100" height="100"/><path fill="%2300bfff" opacity="0.3" d="M0 0L100 100M100 0L0 100M50 0L50 100M0 50L100 50"/><circle cx="25" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="25" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/></svg>');
-background-size: cover;
-color: var(--text);
-line-height: 1.6;
-        }
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 20px;
-        }
-header {
-text-align: center;
-padding: 40px 20px;
-background: rgba(26, 26, 46, 0.8);
-border-radius: 10px;
-margin: 20px 0;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-animation: fadeIn 1s ease-in;
-        }
-.logo {
-font-size: 3rem;
-color: var(--primary);
-margin-bottom: 20px;
-animation: pulse 2s infinite;
-        }
-h1 {
-font-size: 2.8rem;
-margin-bottom: 15px;
-color: var(--primary);
-text-shadow: 0 0 10px var(--glow);
-        }
-.subtitle {
-font-size: 1.4rem;
-margin-bottom: 25px;
-color: var(--light);
-        }
-.profile {
-display: flex;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-gap: 20px;
-margin: 20px 0;
-        }
-.profile-img {
-width: 150px;
-height: 150px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-border: 4px solid var(--primary);
-overflow: hidden;
-box-shadow: 0 0 20px var(--glow);
-animation: glowPulse 2s infinite alternate;
-background: linear-gradient(45deg, var(--primary), var(--accent));
-        }
-.profile-img img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-        }
-.profile-info {
-max-width: 600px;
-        }
-.highlight {
-color: var(--primary);
-font-weight: bold;
-text-shadow: 0 0 5px var(--glow);
-        }
-.badges {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin: 15px 0;
-        }
-.badge {
-background: rgba(0, 191, 255, 0.2);
-border: 1px solid var(--primary);
-padding: 5px 15px;
-border-radius: 20px;
-font-size: 0.9rem;
-box-shadow: 0 0 5px var(--glow);
-transition: transform 0.3s;
-        }
-.badge:hover {
-transform: scale(1.05);
-        }
-.cta-section {
-text-align: center;
-padding: 40px 20px;
-background: rgba(26, 26, 46, 0.8);
-border-radius: 10px;
-margin: 40px 0;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-.cta-button {
-display: inline-block;
-background: var(--accent);
-color: white;
-padding: 15px 40px;
-border-radius: 30px;
-text-decoration: none;
-font-size: 1.2rem;
-font-weight: bold;
-margin: 20px 0;
-transition: all 0.3s ease;
-box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
-animation: pulse 2s infinite;
-        }
-.cta-button:hover {
-transform: translateY(-3px) scale(1.05);
-box-shadow: 0 8px 20px rgba(255, 0, 255, 0.6);
-        }
-.features {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 20px;
-margin: 40px 0;
-        }
-.feature-card {
-background: rgba(26, 26, 46, 0.8);
-border-radius: 10px;
-padding: 25px;
-text-align: center;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease;
-opacity: 0;
-animation: fadeIn 0.5s forwards;
-position: relative;
-overflow: hidden;
-        }
-.feature-card:nth-child(1) { animation-delay: 0.1s; }
-.feature-card:nth-child(2) { animation-delay: 0.2s; }
-.feature-card:nth-child(3) { animation-delay: 0.3s; }
-.feature-card:nth-child(4) { animation-delay: 0.4s; }
-.feature-card:nth-child(5) { animation-delay: 0.5s; }
-.feature-card:nth-child(6) { animation-delay: 0.6s; }
-.feature-card:hover {
-transform: translateY(-5px) scale(1.02);
-box-shadow: 0 10px 25px var(--glow);
-        }
-.feature-image {
-width: 100%;
-height: auto;
-margin-bottom: 20px;
-border-radius: 10px;
-}
-.feature-icon {
-font-size: 2.5rem;
-color: var(--primary);
-margin-bottom: 15px;
-text-shadow: 0 0 10px var(--glow);
-        }
-.social-section {
-text-align: center;
-padding: 30px;
-margin: 40px 0;
-        }
-.social-title {
-font-size: 1.8rem;
-margin-bottom: 20px;
-color: var(--primary);
-text-shadow: 0 0 10px var(--glow);
-        }
-.social-icons {
-display: flex;
-justify-content: center;
-gap: 20px;
-flex-wrap: wrap;
-        }
-.social-icon {
-width: 60px;
-height: 60px;
-border-radius: 50%;
-background: rgba(0, 191, 255, 0.2);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.8rem;
-color: var(--primary);
-text-decoration: none;
-transition: all 0.3s ease;
-border: 2px solid var(--primary);
-box-shadow: 0 0 10px var(--glow);
-        }
-.social-icon:hover {
-transform: scale(1.1);
-background: var(--primary);
-color: white;
-box-shadow: 0 0 20px var(--glow);
-        }
-footer {
-text-align: center;
-padding: 20px;
-margin-top: 40px;
-border-top: 1px solid rgba(0, 191, 255, 0.3);
-        }
-/* Estilos para los logos personalizados */
-.powerbi-logo {
-font-size: 2.5rem;
-margin-bottom: 15px;
-text-shadow: 0 0 10px var(--glow);
-display: inline-block;
-position: relative;
-}
-
-.powerbi-logo {
-color: #F2C811;
-text-shadow: 0 0 10px rgba(242, 200, 17, 0.7);
-}
-.badge-icon {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: 30px;
-height: 30px;
-margin-right: 8px;
-border-radius: 50%;
-background: rgba(0, 191, 255, 0.2);
-box-shadow: 0 0 5px var(--glow);
-}
-/* Estilo para el ícono de X (Twitter) personalizado */
-.x-icon {
-position: relative;
-display: inline-block;
-width: 1em;
-height: 1em;
-}
-.x-icon::before {
-content: "X";
-font-family: Arial, sans-serif;
-font-weight: bold;
-font-size: 1.2em;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-}
-@keyframes pulse {
-0% { transform: scale(1); }
-50% { transform: scale(1.05); }
-100% { transform: scale(1); }
-}
-@keyframes glowPulse {
-from { box-shadow: 0 0 10px var(--glow); }
-to { box-shadow: 0 0 30px var(--glow); }
-}
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@media (max-width: 768px) {
-h1 {
-font-size: 2.2rem;
-            }
-.subtitle {
-font-size: 1.1rem;
-            }
-.profile {
-flex-direction: column;
-text-align: center;
-            }
-.features {
-grid-template-columns: 1fr;
-            }
-        }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Inteligencia Artificial y Datos con Marco Data</title>
+    <!-- Mejora SEO: Agrego meta description y keywords -->
+    <meta name="description" content="Aprende IA y datos desde cero con Marco Data, experto senior con experiencia en Google. Curso personalizado en español/inglés con ejercicios prácticos y preparación laboral.">
+    <meta name="keywords" content="curso IA, datos, Power BI, Python, inteligencia artificial, Marco Data">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph para mejor分享 en redes -->
+    <meta property="og:title" content="Curso de Inteligencia Artificial y Datos con Marco Data">
+    <meta property="og:description" content="Domina IA y datos con un experto senior. Oferta navideña 40% off.">
+    <meta property="og:image" content="https://marcodata2.github.io/Data-Course-2026/IA.jpg"> <!-- Ejemplo con una imagen existente -->
+    <meta property="og:url" content="https://marcodata2.github.io/Data-Course-2026/">
+    <meta property="og:type" content="website">
+    <!-- Favicon placeholder (agrega tu icono si lo tienes) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Actualizado a Font Awesome 6.5.1 que incluye el ícono de X -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {--primary: #00ff88; --secondary: #1a2e1f; --accent: #ff6b00; --dark: #0a1a0f; --light: #e0ffe8; --text: #f8f9fa; --glow: rgba(0, 255, 136, 0.6);}
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        body {background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a2e" width="100" height="100"/><path fill="%2300bfff" opacity="0.3" d="M0 0L100 100M100 0L0 100M50 0L50 100M0 50L100 50"/><circle cx="25" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="25" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/></svg>'); background-size: cover; color: var(--text); line-height: 1.6; scroll-behavior: smooth;} /* Agrego smooth scrolling */
+        .container {max-width: 1200px; margin: 0 auto; padding: 20px;}
+        header {text-align: center; padding: 40px 20px; background: rgba(26, 26, 46, 0.8); border-radius: 10px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); animation: fadeIn 1s ease-in;}
+        .logo {font-size: 3rem; color: var(--primary); margin-bottom: 20px; animation: pulse 2s infinite;}
+        h1 {font-size: 2.8rem; margin-bottom: 15px; color: var(--primary); text-shadow: 0 0 10px var(--glow);}
+        .subtitle {font-size: 1.4rem; margin-bottom: 25px; color: var(--light);}
+        .profile {display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 20px 0;}
+        .profile-img {width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 4px solid var(--primary); overflow: hidden; box-shadow: 0 0 20px var(--glow); animation: glowPulse 2s infinite alternate; background: linear-gradient(45deg, var(--primary), var(--accent));}
+        .profile-img img {width: 100%; height: 100%; object-fit: cover;}
+        .profile-info {max-width: 600px;}
+        .highlight {color: var(--primary); font-weight: bold; text-shadow: 0 0 5px var(--glow);}
+        .badges {display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;}
+        .badge {background: rgba(0, 191, 255, 0.2); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; box-shadow: 0 0 5px var(--glow); transition: transform 0.3s;}
+        .badge:hover {transform: scale(1.05);}
+        .cta-section {text-align: center; padding: 40px 20px; background: rgba(26, 26, 46, 0.8); border-radius: 10px; margin: 40px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);}
+        .cta-button {display: inline-block; background: var(--accent); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; margin: 20px 0; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); animation: pulse 2s infinite;}
+        .cta-button:hover {transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 20px rgba(255, 0, 255, 0.6);}
+        .features {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0;}
+        .feature-card {background: rgba(26, 26, 46, 0.8); border-radius: 10px; padding: 25px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease; opacity: 0; animation: fadeIn 0.5s forwards; position: relative; overflow: hidden;}
+        .feature-card:nth-child(1) { animation-delay: 0.1s; } .feature-card:nth-child(2) { animation-delay: 0.2s; } .feature-card:nth-child(3) { animation-delay: 0.3s; } .feature-card:nth-child(4) { animation-delay: 0.4s; } .feature-card:nth-child(5) { animation-delay: 0.5s; } .feature-card:nth-child(6) { animation-delay: 0.6s; }
+        .feature-card:hover {transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px var(--glow);}
+        .feature-image {width: 100%; height: auto; margin-bottom: 20px; border-radius: 10px;}
+        .feature-icon {font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; text-shadow: 0 0 10px var(--glow);}
+        .social-section {text-align: center; padding: 30px; margin: 40px 0;}
+        .social-title {font-size: 1.8rem; margin-bottom: 20px; color: var(--primary); text-shadow: 0 0 10px var(--glow);}
+        .social-icons {display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
+        .social-icon {width: 60px; height: 60px; border-radius: 50%; background: rgba(0, 191, 255, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary); text-decoration: none; transition: all 0.3s ease; border: 2px solid var(--primary); box-shadow: 0 0 10px var(--glow);}
+        .social-icon:hover {transform: scale(1.1); background: var(--primary); color: white; box-shadow: 0 0 20px var(--glow);}
+        footer {text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid rgba(0, 191, 255, 0.3);}
+        /* Estilos para los logos personalizados */
+        .powerbi-logo {font-size: 2.5rem; margin-bottom: 15px; text-shadow: 0 0 10px var(--glow); display: inline-block; position: relative; color: #F2C811; text-shadow: 0 0 10px rgba(242, 200, 17, 0.7);} /* Unifiqué duplicado */
+        .badge-icon {display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-right: 8px; border-radius: 50%; background: rgba(0, 191, 255, 0.2); box-shadow: 0 0 5px var(--glow);}
+        /* Estilo para el ícono de X (Twitter) personalizado */
+        .x-icon {position: relative; display: inline-block; width: 1em; height: 1em;}
+        .x-icon::before {content: "X"; font-family: Arial, sans-serif; font-weight: bold; font-size: 1.2em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+        @keyframes pulse {0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }}
+        @keyframes glowPulse {from { box-shadow: 0 0 10px var(--glow); } to { box-shadow: 0 0 30px var(--glow); }}
+        @keyframes fadeIn {from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); }}
+        @media (max-width: 768px) {h1 {font-size: 2.2rem;} .subtitle {font-size: 1.1rem;} .profile {flex-direction: column; text-align: center;} .features {grid-template-columns: 1fr;}}
+        /* Mejora responsive: Agrego para tablets */
+        @media (min-width: 769px) and (max-width: 1024px) {.features {grid-template-columns: repeat(2, 1fr);}}
+    </style>
 </head>
 <body>
-<div class="container">
-<header>
-<div class="logo">
-<i class="fas fa-robot"></i> <!-- Changed to robot icon for AI alignment -->
-</div>
-<h1>Domina Inteligencia Artificial y Datos con un experto.</h1>
-<p class="subtitle">Aprende IA y manejar grandes volúmenes de datos desde cero en español y/o inglés hasta nivel avanzado con Marco Data Specialist, Senior Data Specialist con amplia experiencia en empresas líderes como Google.</p>
-<div class="profile">
-<div class="profile-img">
-<!-- Imagen de perfil corregida -->
-<img src="490823471_9469557853080577_5427190448564752832_n.jpg" alt="Marco Díaz - Data Specialist">
-</div>
-<div class="profile-info">
-<h2>Ing. Marco Data</h2>
-<p>Senior Data Specialist </p>
-<div class="badges">
-<span class="badge"><span class="badge-icon"><i class="fas fa-cogs"></i></span>Datos</span>
-<span class="badge"><span class="badge-icon"><i class="fas fa-brain"></i></span>IA</span>
-</div>
-</div>
-</div>
-</header>
-<div class="cta-section">
-<h2>¿Listo para trabajar desde casa y ganar dinero 🤑💰💵?</h2>
-
-<a href="pagos.html" class="cta-button">¡Inscríbete al Curso Ahora!</a>
-<p>Oferta Navideña - 40% de descuento</p>
-</div>
-<h2 style="text-align: center; margin: 40px 0 20px; color: var(--primary); text-shadow: 0 0 10px var(--glow);">¿Qué aprenderás en este curso?</h2>
-<div class="features">
-<div class="feature-card">
-<img src="BD.png" alt="SQL desde Cero" class="feature-image">
-<div class="feature-icon">
-<i class="fas fa-code"></i>
-</div>
-<h3>Bases de datos desde Cero</h3>
-<p>Domina bases de datos con ejercicios prácticos.</p>
-</div>
-<div class="feature-card">
-<img src="PowerBI.png" alt="Power BI y Visualización" class="feature-image">
-<div class="feature-icon">
-<i class="fas fa-chart-bar powerbi-logo"></i>
-</div>
-<h3>Power BI</h3>
-<p>Aprende a crear dashboards interactivos y reportes profesionales con Power BI.</p>
-</div>
-<div class="feature-card">
-<img src="IA.jpg" alt="AI Generativa" class="feature-image">
-<div class="feature-icon">
-<i class="fas fa-cloud"></i>
-</div>
-<h3>Inteligencia Artificial</h3>
-<p>Aprende a usar Inteligencia Artificial en tu negocio, implementación de modelos y manejo en la nube.</p>
-</div>
-<div class="feature-card">
-<img src="Datos.png" alt="ETL y Flujos de Datos" class="feature-image">
-<div class="feature-icon">
-<i class="fas fa-cogs"></i>
-</div>
-<h3>Datos</h3>
-<p>Diseña y optimiza procesos para el manejo eficiente de grandes volúmenes de datos.</p>
-</div>
-<div class="feature-card">
-<img src="Python.png" alt="Python para Data Science" class="feature-image">
-<div class="feature-icon">
-<i class="fab fa-python python-logo"></i>
-</div>
-<h3>Python para Datos</h3>
-<p>Domina Python para análisis de datos avanzado.</p>
-</div>
-<div class="feature-card">
-<img src="CV.jpg" alt="Preparación Laboral" class="feature-image">
-<div class="feature-icon">
-<i class="fas fa-briefcase"></i>
-</div>
-<h3>Preparación Laboral</h3>
-<p>Consejos para conseguir empleo y destacar en entrevistas técnicas.</p>
-</div>
-</div>
-<div class="social-section">
-<h2 class="social-title">Sígueme en Redes Sociales</h2>
-<div class="social-icons">
-<a href="https://www.youtube.com/@MarcoDataSpecialist" class="social-icon">
-<i class="fab fa-youtube"></i>
-</a>
-<a href="https://www.linkedin.com/in/marcodata19/" class="social-icon">
-<i class="fab fa-linkedin-in"></i>
-</a>
-<a href="https://x.com/marcodata2026" class="social-icon">
-<!-- Ícono de X con respaldo en caso de que Font Awesome no funcione -->
-<i class="fab fa-x-twitter"></i>
-</a>
-<a href="https://www.instagram.com/marcodataspecialist/" class="social-icon">
-<i class="fab fa-instagram"></i>
-</a>
-<a href="https://github.com/MarcoData2" class="social-icon">
-<i class="fab fa-github"></i>
-</a>
-</div>
-</div>
-<footer>
-<p>© 2026 Curso de IA y Datos con Marco Data. Todos los derechos reservados. </p>
-<p>Desarrollado para futuros expertos en IA, datos y tecnología.</p>
-</footer>
-</div>
-<script>
-// Detectar si el ícono de X no se carga y mostrar alternativa
-document.addEventListener('DOMContentLoaded', function() {
-const xIcon = document.querySelector('.fa-x-twitter');
-if (xIcon && getComputedStyle(xIcon, '::before').content === 'none') {
-xIcon.classList.add('x-icon');
-    }
-});
-</script>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i> <!-- Changed to robot icon for AI alignment -->
+            </div>
+            <h1>Domina Inteligencia Artificial y Datos con un experto.</h1>
+            <p class="subtitle">Aprende IA y manejar grandes volúmenes de datos desde cero en español y/o inglés hasta nivel avanzado con Marco Data Specialist, Senior Data Specialist con amplia experiencia en empresas líderes como Google.</p>
+            <div class="profile">
+                <div class="profile-img">
+                    <!-- Imagen de perfil corregida, agrego loading="lazy" -->
+                    <img src="490823471_9469557853080577_5427190448564752832_n.jpg" alt="Marco Data - Data Specialist" loading="lazy">
+                </div>
+                <div class="profile-info">
+                    <h2>Ing. Marco Data</h2>
+                    <p>Senior Data Specialist </p>
+                    <div class="badges">
+                        <span class="badge" aria-label="Especialidad en Datos"><span class="badge-icon"><i class="fas fa-cogs"></i></span>Datos</span> <!-- Agrego ARIA -->
+                        <span class="badge" aria-label="Especialidad en IA"><span class="badge-icon"><i class="fas fa-brain"></i></span>IA</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="cta-section">
+            <h2>¿Listo para trabajar desde casa y ganar dinero 🤑💰💵?</h2>
+            <a href="pagos.html" class="cta-button">¡Inscríbete al Curso Ahora!</a>
+            <p>Oferta Navideña - 40% de descuento</p>
+        </div>
+        <h2 style="text-align: center; margin: 40px 0 20px; color: var(--primary); text-shadow: 0 0 10px var(--glow);">¿Qué aprenderás en este curso?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <img src="BD.png" alt="SQL desde Cero" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Bases de datos desde Cero</h3>
+                <p>Domina bases de datos con ejercicios prácticos.</p>
+            </div>
+            <div class="feature-card">
+                <img src="PowerBI.png" alt="Power BI y Visualización" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar powerbi-logo"></i>
+                </div>
+                <h3>Power BI</h3>
+                <p>Aprende a crear dashboards interactivos y reportes profesionales con Power BI.</p>
+            </div>
+            <div class="feature-card">
+                <img src="IA.jpg" alt="AI Generativa" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Inteligencia Artificial</h3>
+                <p>Aprende a usar Inteligencia Artificial en tu negocio, implementación de modelos y manejo en la nube.</p>
+            </div>
+            <div class="feature-card">
+                <img src="Datos.png" alt="ETL y Flujos de Datos" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Datos</h3>
+                <p>Diseña y optimiza procesos para el manejo eficiente de grandes volúmenes de datos.</p>
+            </div>
+            <div class="feature-card">
+                <img src="Python.png" alt="Python para Data Science" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fab fa-python python-logo"></i>
+                </div>
+                <h3>Python para Datos</h3>
+                <p>Domina Python para análisis de datos avanzado.</p>
+            </div>
+            <div class="feature-card">
+                <img src="CV.jpg" alt="Preparación Laboral" class="feature-image" loading="lazy">
+                <div class="feature-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Preparación Laboral</h3>
+                <p>Consejos para conseguir empleo y destacar en entrevistas técnicas.</p>
+            </div>
+        </div>
+        <div class="social-section">
+            <h2 class="social-title">Sígueme en Redes Sociales</h2>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@MarcoDataSpecialist" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube de Marco Data"><i class="fab fa-youtube"></i></a> <!-- Agrego target, rel y ARIA -->
+                <a href="https://www.linkedin.com/in/marcodata19/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marco Data"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/marcodata2026" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Marco Data"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/marcodataspecialist/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Marco Data"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/MarcoData2" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marco Data"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <footer>
+            <p>© 2025-2026 Curso de IA y Datos con Marco Data. Todos los derechos reservados. </p> <!-- Actualizo año a rango -->
+            <p>Desarrollado para futuros expertos en IA, datos y tecnología.</p>
+        </footer>
+    </div>
+    <script>
+        // Detectar si el ícono de X no se carga y mostrar alternativa
+        document.addEventListener('DOMContentLoaded', function() {
+            const xIcon = document.querySelector('.fa-x-twitter');
+            if (xIcon && getComputedStyle(xIcon, '::before').content === 'none') {
+                xIcon.classList.add('x-icon');
+            }
+        });
+    </script>
 </body>
 </html>
