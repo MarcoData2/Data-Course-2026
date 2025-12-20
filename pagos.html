@@ -1,222 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan de Cobros - Curso de IA y Datos con Marco Data</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-:root {
-    --primary: #00bfff;
-    --secondary: #1a1a2e;
-    --accent: #ff00ff;
-    --dark: #0a0a1a;
-    --light: #e0e0ff;
-    --text: #f8f9fa;
-    --glow: rgba(0, 191, 255, 0.6);
-}
-body {
-    background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a2e" width="100" height="100"/><path fill="%2300bfff" opacity="0.3" d="M0 0L100 100M100 0L0 100M50 0L50 100M0 50L100 50"/><circle cx="25" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="25" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/></svg>');
-    background-size: cover;
-    color: var(--text);
-    line-height: 1.6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(26, 26, 46, 0.8);
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-h1 {
-    font-size: 2.8rem;
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--glow);
-}
-.pagos-section {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(26, 26, 46, 0.8);
-    border-radius: 10px;
-    margin: 40px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-.pagos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-.pagos-card {
-    background: #1a1a3a;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,162,255,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-.pagos-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0,162,255,0.5);
-}
-.pagos-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-.pagos-icon {
-    font-size: 3em;
-    color: #00a2ff;
-    margin-bottom: 20px;
-}
-.pagos-title {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-.pagos-desc {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #d0d0d0;
-}
-.pagos-price {
-    font-size: 2em;
-    color: #00ff85;
-    margin-bottom: 15px;
-}
-.pagos-packages {
-    font-size: 0.9em;
-    color: #a0d0ff;
-}
-.notes {
-    text-align: center;
-    margin-top: 40px;
-}
-.notes h3 {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--glow);
-}
-.notes ul {
-    list-style: none;
-    padding: 0;
-}
-.notes li {
-    margin: 10px 0;
-}
-.whatsapp-btn {
-    background-color: #25D366;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-.whatsapp-btn:hover {
-    background-color: #128C7E;
-}
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(0, 191, 255, 0.3);
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    .pagos-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Cobros - Curso de IA y Datos con Marco Data</title>
+    <!-- Mejora SEO -->
+    <meta name="description" content="Planes de mentoría personalizada en IA, Datos, Python, Power BI y más con Marco Data. Precios por hora y paquetes con descuento. Contáctame por WhatsApp.">
+    <meta name="keywords" content="mentoría datos, curso IA personalizado, Power BI, Python, precios consultoría data México">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Plan de Cobros - Curso de IA y Datos con Marco Data">
+    <meta property="og:description" content="Tarifas competitivas para mentoría en datos e IA. Paquetes con descuento.">
+    <meta property="og:image" content="https://marcodata2.github.io/Data-Course-2026/IA.jpg">
+    <meta property="og:url" content="https://marcodata2.github.io/Data-Course-2026/pagos.html">
+    <meta property="og:type" content="website">
+    <!-- Favicon placeholder -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00bfff;
+            --secondary: #1a1a2e;
+            --accent: #ff00ff;
+            --dark: #0a0a1a;
+            --light: #e0e0ff;
+            --text: #f8f9fa;
+            --glow: rgba(0, 191, 255, 0.6);
+            --green-glow: rgba(0, 255, 136, 0.6);
+        }
+        body {
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)),
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a1a2e" width="100" height="100"/><path fill="%2300bfff" opacity="0.3" d="M0 0L100 100M100 0L0 100M50 0L50 100M0 50L100 50"/><circle cx="25" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="25" cy="75" r="3" fill="%23ff00ff" opacity="0.4"/><circle cx="75" cy="25" r="3" fill="%23ff00ff" opacity="0.4"/></svg>');
+            background-size: cover;
+            color: var(--text);
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        .container {max-width: 1200px; margin: 0 auto; padding: 20px;}
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in;
+        }
+        .logo {font-size: 3rem; color: var(--primary); margin-bottom: 20px;}
+        h1 {font-size: 2.8rem; color: var(--primary); text-shadow: 0 0 10px var(--glow);}
+        .pagos-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in;
+        }
+        .pagos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .pagos-card {
+            background: #1a1a3a;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,162,255,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        .pagos-card:nth-child(1) { animation-delay: 0.1s; }
+        .pagos-card:nth-child(2) { animation-delay: 0.2s; }
+        .pagos-card:nth-child(3) { animation-delay: 0.3s; }
+        .pagos-card:nth-child(4) { animation-delay: 0.4s; }
+        .pagos-card:nth-child(5) { animation-delay: 0.5s; }
+        .pagos-card:nth-child(6) { animation-delay: 0.6s; }
+        .pagos-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0,162,255,0.7);
+        }
+        .pagos-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .pagos-icon {font-size: 3em; color: #00a2ff; margin-bottom: 20px;}
+        .pagos-title {font-size: 1.8em; margin-bottom: 10px; color: var(--primary);}
+        .pagos-desc {font-size: 1.1em; margin-bottom: 20px; color: #d0d0d0;}
+        .pagos-price {font-size: 2em; color: #00ff85; margin-bottom: 15px; text-shadow: 0 0 10px var(--green-glow);}
+        .pagos-packages {font-size: 0.9em; color: #a0d0ff;}
+        .notes {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .notes h3 {color: var(--primary); text-shadow: 0 0 10px var(--glow);}
+        .notes ul {list-style: none; padding: 0;}
+        .notes li {margin: 10px 0;}
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-btn:hover {background-color: #128C7E; transform: scale(1.05);}
+        .back-btn {
+            display: inline-block;
+            margin: 20px 0;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        footer {text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid rgba(0, 191, 255, 0.3);}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            h1 {font-size: 2.2rem;}
+            .pagos-grid {grid-template-columns: 1fr;}
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .pagos-grid {grid-template-columns: repeat(2, 1fr);}
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>Plan de Cobros 2026</h1>
-</header>
-<div class="pagos-section">
-<p>Tarifas competitivas para consultoría y mentoría en datos, adaptadas al mercado mexicano. ¡Impulsa tu carrera con un experto de talla mundial!</p>
-<div class="pagos-grid">
-<div class="pagos-card">
-<img src="BD.png" alt="Consultoría SQL" class="pagos-image">
-<div class="pagos-icon">🗃️</div>
-<h3 class="pagos-title">Bases de Datos</h3>
-<p class="pagos-desc">Consultas avanzadas a bases de datos.</p>
-<p class="pagos-price">$600 MXN / hora</p>
-<p class="pagos-packages">Paquetes: 5h - $2,700 (10% off) | 10h - $5,100 (15% off)</p>
-</div>
-<div class="pagos-card">
-<img src="Python.png" alt="Desarrollo Python" class="pagos-image">
-<div class="pagos-icon">🐍</div>
-<h3 class="pagos-title">Python</h3>
-<p class="pagos-desc">Análisis de Datos con Python desde cero hasta nivel avanzado.</p>
-<p class="pagos-price">$650 MXN / hora</p>
-<p class="pagos-packages">Paquetes: 5h - $2,925 (10% off) | 10h - $5,525 (15% off)</p>
-</div>
-<div class="pagos-card">
-<img src="PowerBI.png" alt="Visualización Power BI" class="pagos-image">
-<div class="pagos-icon">📊</div>
-<h3 class="pagos-title">Power BI</h3>
-<p class="pagos-desc">Dashboards interactivos y reportes profesionales.</p>
-<p class="pagos-price">$550 MXN / hora</p>
-<p class="pagos-packages">Paquetes: 5h - $2,475 (10% off) | 10h - $4,675 (15% off)</p>
-</div>
-<div class="pagos-card">
-<img src="Datos.png" alt="Ingeniería de Datos" class="pagos-image">
-<div class="pagos-icon">⚙️</div>
-<h3 class="pagos-title">Datos</h3>
-<p class="pagos-desc">Diseño de flujos y manejo de datos en la nube.</p>
-<p class="pagos-price">$700 MXN / hora</p>
-<p class="pagos-packages">Paquetes: 5h - $3,150 (10% off) | 10h - $5,950 (15% off)</p>
-</div>
-<div class="pagos-card">
-<img src="IA.jpg" alt="IA Generativa" class="pagos-image">
-<div class="pagos-icon">🤖</div>
-<h3 class="pagos-title">Inteligencia Artificial</h3>
-<p class="pagos-desc">Aprende a usar IA con implementación de modelos en tu negocio.</p>
-<p class="pagos-price">$750 MXN / hora</p>
-<p class="pagos-packages">Paquetes: 5h - $3,375 (10% off) | 10h - $6,375 (15% off)</p>
-</div>
-<div class="pagos-card">
-<img src="CV.jpg" alt="Preparación Laboral" class="pagos-image">
-<div class="pagos-icon">💼</div>
-<h3 class="pagos-title">Preparación Laboral</h3>
-<p class="pagos-desc">Consejos para CV, entrevistas técnicas y proyectos prácticos.</p>
-<p class="pagos-price">$500 MXN / hora</p>
-<p class="pagos-packages">Paquete Carrera: 10h + CV Review - $4,500 (10% off)</p>
-</div>
-</div>
-<div class="notes">
-<h3>Notas Importantes:</h3>
-<ul>
-
-<li>Descuentos por paquetes con pago anticipado.</li>
-<li>Sesiones virtuales o presenciales (traslados extra si aplican).</li>
-<li>Basado en tasas freelance en México para 2026 ($500-900 MXN/h).</li>
-</ul>
-<a href="https://wa.me/525531201823?text=Hola%20Marco,%20estoy%20interesado%20en%20los%20planes%20de%20cobros%20para%20el%20curso%20de%20Data%20Analysis%202026.%20%C2%A1Podr%C3%ADas%20darme%20m%C3%A1s%20detalles!" class="whatsapp-btn">Contáctame por WhatsApp</a>
-</div>
-</div>
-<footer>
-<p>© 2026 Curso de IA y Datos con Marco Data. Todos los derechos reservados.</p>
-</footer>
-</div>
+    <div class="container">
+        <header>
+            <div class="logo"><i class="fas fa-robot"></i></div>
+            <h1>Plan de Cobros 2026</h1>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Curso</a>
+        </header>
+        <div class="pagos-section">
+            <p>Tarifas competitivas para consultoría y mentoría en datos, adaptadas al mercado mexicano. ¡Impulsa tu carrera con un experto de talla mundial!</p>
+            <div class="pagos-grid">
+                <div class="pagos-card">
+                    <img src="BD.png" alt="Consultoría SQL" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">🗃️</div>
+                    <h3 class="pagos-title">Bases de Datos</h3>
+                    <p class="pagos-desc">Consultas avanzadas a bases de datos.</p>
+                    <p class="pagos-price">$600 MXN / hora</p>
+                    <p class="pagos-packages">Paquetes: 5h - $2,700 (10% off) | 10h - $5,100 (15% off)</p>
+                </div>
+                <div class="pagos-card">
+                    <img src="Python.png" alt="Desarrollo Python" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">🐍</div>
+                    <h3 class="pagos-title">Python</h3>
+                    <p class="pagos-desc">Análisis de Datos con Python desde cero hasta nivel avanzado.</p>
+                    <p class="pagos-price">$650 MXN / hora</p>
+                    <p class="pagos-packages">Paquetes: 5h - $2,925 (10% off) | 10h - $5,525 (15% off)</p>
+                </div>
+                <div class="pagos-card">
+                    <img src="PowerBI.png" alt="Visualización Power BI" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">📊</div>
+                    <h3 class="pagos-title">Power BI</h3>
+                    <p class="pagos-desc">Dashboards interactivos y reportes profesionales.</p>
+                    <p class="pagos-price">$550 MXN / hora</p>
+                    <p class="pagos-packages">Paquetes: 5h - $2,475 (10% off) | 10h - $4,675 (15% off)</p>
+                </div>
+                <div class="pagos-card">
+                    <img src="Datos.png" alt="Ingeniería de Datos" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">⚙️</div>
+                    <h3 class="pagos-title">Datos</h3>
+                    <p class="pagos-desc">Diseño de flujos y manejo de datos en la nube.</p>
+                    <p class="pagos-price">$700 MXN / hora</p>
+                    <p class="pagos-packages">Paquetes: 5h - $3,150 (10% off) | 10h - $5,950 (15% off)</p>
+                </div>
+                <div class="pagos-card">
+                    <img src="IA.jpg" alt="IA Generativa" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">🤖</div>
+                    <h3 class="pagos-title">Inteligencia Artificial</h3>
+                    <p class="pagos-desc">Aprende a usar IA con implementación de modelos en tu negocio.</p>
+                    <p class="pagos-price">$750 MXN / hora</p>
+                    <p class="pagos-packages">Paquetes: 5h - $3,375 (10% off) | 10h - $6,375 (15% off)</p>
+                </div>
+                <div class="pagos-card">
+                    <img src="CV.jpg" alt="Preparación Laboral" class="pagos-image" loading="lazy">
+                    <div class="pagos-icon">💼</div>
+                    <h3 class="pagos-title">Preparación Laboral</h3>
+                    <p class="pagos-desc">Consejos para CV, entrevistas técnicas y proyectos prácticos.</p>
+                    <p class="pagos-price">$500 MXN / hora</p>
+                    <p class="pagos-packages">Paquete Carrera: 10h + CV Review - $4,500 (10% off)</p>
+                </div>
+            </div>
+            <div class="notes">
+                <h3>Notas Importantes:</h3>
+                <ul>
+                    <li>Descuentos por paquetes con pago anticipado.</li>
+                    <li>Sesiones virtuales o presenciales (traslados extra si aplican).</li>
+                    <li>Basado en tasas freelance en México para 2026 ($500-900 MXN/h).</li>
+                </ul>
+                <a href="https://wa.me/525531201823?text=Hola%20Marco,%20estoy%20interesado%20en%20los%20planes%20de%20cobros%20para%20el%20curso%20de%20Data%20Analysis%202026.%20%C2%A1Podr%C3%ADas%20darme%20m%C3%A1s%20detalles!" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                    Contáctame por WhatsApp
+                </a>
+            </div>
+        </div>
+        <footer>
+            <p>© 2025-2026 Curso de IA y Datos con Marco Data. Todos los derechos reservados.</p>
+        </footer>
+    </div>
 </body>
 </html>
